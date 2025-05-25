@@ -1,4 +1,4 @@
-## Day - 01
+## 1️⃣ Day - 01
 Day 1 was very simple. I just learned how to add two 1D vectors using a basic CUDA kernel.
 
 ### Keywords and Variable.
@@ -13,7 +13,7 @@ Day 1 was very simple. I just learned how to add two 1D vectors using a basic CU
 - `cudaMemcpy`: Copies memory between host (CPU) and device (GPU). For example, use `cudaMemcpyHostToDevice` to copy from host to device.
 - `cudaFree`: Frees the allocated memory on the CUDA device.
   
-## Day - 02
+## 2️⃣ Day - 02
 Day 2 is kind a simple. Now I know how to add 2D matrix.
 
 ### Keywords and Variable.

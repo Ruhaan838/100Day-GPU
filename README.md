@@ -30,3 +30,24 @@ Day 2 is kind a simple. Now I know how to add 2D matrix.
     N: len of matrix
 ```
 - Rest of the things are same as per the Day01.
+
+## 3️⃣ Day - 03
+Day 3 is too simple. Now I know ho to add 2D mat with 1D vec.
+
+### Example:
+```
+2D mat
+1 1 1 
+1 1 1 
+1 1 1 
+
+1D vec
+2 2 2 
+
+ans vec
+6 6 6
+
+```
+
+this simple matrix addition with vector.
+- Nothing new to learn at this day.

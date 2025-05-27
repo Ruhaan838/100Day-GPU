@@ -51,3 +51,47 @@ ans vec
 
 This is a simple matrix multiplication with a vector.
 - Nothing new to learn on this day.
+
+## 4️⃣ Day - 04
+Day 4 is quite new and interesting.
+
+### Keywords and Variables.
+- `__shared__`: This kerword is allow to share the memory.
+- `__syncthreads`[[2](https://github.com/Ruhaan838/100Day-CUDA/blob/c4372606eabb5df848d723fd8e67dd3d32f53fb5/README.md#L97)]: Command is a block level synchronization barrier. Basically stabelze the hang or produce unintended side effects.
+
+## How Code Works
+
+- First thing is that we have
+
+2 blocks, each with 8 threads <br>
+Each block uses 32 bytes of shared memory <br>
+`<<<gridsize, blocksize, shared_mem>>>` = `<<<2, 8, 32>>>`
+
+---
+>**NOTE[[1](https://github.com/Ruhaan838/100Day-CUDA/blob/c4372606eabb5df848d723fd8e67dd3d32f53fb5/README.md#L96)]:** 1 static shared memory: <br>
+&emsp;&emsp; `__shared__ int var1[10]` <br>
+2 dynamic shared memory: should add "extern" keyword <br>
+&emsp;&emsp; `extern __shared__ int Var1[]`
+---
+
+- Then we fill the sharedMemory like this
+
+```bash
+sharedMemory[0] = in[0] + in[8] = 1 + 9 = 10
+
+sharedMemory[1] = in[1] + in[9] = 2 + 10 = 12
+
+...
+
+sharedMemory[7] = in[7] + in[15] = 8 + 16 = 24
+```
+
+- By this sharedMemory we perfrom the partialSum.
+```
+[10, 12, 14, 16, 18, 20, 22, 24]
+[10, 22, 36, 52, 70, 90, 112, 136]
+```
+
+- Credits <br>
+  - [stackOverflow-1](https://stackoverflow.com/questions/12066730/allocate-shared-variables-in-cuda)
+  - [stackOverflow-2](https://stackoverflow.com/questions/15240432/does-syncthreads-synchronize-all-threads-in-the-grid)

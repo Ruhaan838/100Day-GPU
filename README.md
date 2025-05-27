@@ -57,7 +57,7 @@ Day 4 is quite new and interesting.
 
 ### Keywords and Variables.
 - `__shared__`: This kerword is allow to share the memory.
-- `__syncthreads`[[2](https://github.com/Ruhaan838/100Day-CUDA/blob/c4372606eabb5df848d723fd8e67dd3d32f53fb5/README.md#L97)]: Command is a block level synchronization barrier. Basically stabelze the hang or produce unintended side effects.
+- `__syncthreads`[2]: Command is a block level synchronization barrier. Basically stabelze the hang or produce unintended side effects.
 
 ## How Code Works
 
@@ -68,7 +68,7 @@ Each block uses 32 bytes of shared memory <br>
 `<<<gridsize, blocksize, shared_mem>>>` = `<<<2, 8, 32>>>`
 
 ---
->**NOTE[[1](https://github.com/Ruhaan838/100Day-CUDA/blob/c4372606eabb5df848d723fd8e67dd3d32f53fb5/README.md#L96)]:** 1 static shared memory: <br>
+>**NOTE[1]:** 1 static shared memory: <br>
 &emsp;&emsp; `__shared__ int var1[10]` <br>
 2 dynamic shared memory: should add "extern" keyword <br>
 &emsp;&emsp; `extern __shared__ int Var1[]`

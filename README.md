@@ -110,8 +110,9 @@ $$
 \text{LayerNorm}(x_i) = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta
 $$
 
-Where:
-$$ \mu = \frac{1}{N} \sum_{i=1}^{N} x_i \quad \text{(Mean of } x \text{)} $$
+Where: <br>
+
+$$ \mu = \frac{1}{N} \sum_{i=1}^{N} x_i \quad \text{(Mean of } x \text{)} $$ 
 $$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2 \quad \text{(Variance of } x \text{)} $$
 $$ \epsilon \quad \text{(Small constant to avoid division by zero)} $$
 $$ \gamma, \beta \quad \text{(Learnable scale and shift parameters)} $$

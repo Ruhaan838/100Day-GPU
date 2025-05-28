@@ -98,7 +98,7 @@ sharedMemory[7] = in[7] + in[15] = 8 + 16 = 24
   
 ## 5️⃣ Day - 05
 
-Today, day I feel like I use all the concept of the other days.
+Today, I use all the concepts from other days.
 
 - By using the formula for **Layer Normalization**, we can implement it in CUDA quite efficiently.
 
@@ -111,8 +111,8 @@ $$
 $$
 
 Where:
-- $$ \mu = \frac{1}{N} \sum_{i=1}^{N} x_i \quad \text{(Mean of } x \text{)} $$
-- $$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2 \quad \text{(Variance of } x \text{)} $$
-- $$ \epsilon \quad \text{(Small constant to avoid division by zero)} $$
-- $$ \gamma, \beta \quad \text{(Learnable scale and shift parameters)} $$
+$$ \mu = \frac{1}{N} \sum_{i=1}^{N} x_i \quad \text{(Mean of } x \text{)} $$
+$$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2 \quad \text{(Variance of } x \text{)} $$
+$$ \epsilon \quad \text{(Small constant to avoid division by zero)} $$
+$$ \gamma, \beta \quad \text{(Learnable scale and shift parameters)} $$
 

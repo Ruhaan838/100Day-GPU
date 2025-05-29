@@ -117,3 +117,15 @@ $$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2 \quad \text{(Variance of 
 $$ \epsilon \quad \text{(Small constant to avoid division by zero)} $$
 $$ \gamma, \beta \quad \text{(Learnable scale and shift parameters)} $$
 
+## 6️⃣ Day - 06
+
+Today, I learned how to **transpose any matrix** using CUDA.
+
+### Keywords and Variables
+
+- `cudaError_t` — This type is used to define error codes returned by CUDA API functions.
+- `cudaGetLastError()` — This function retrieves the last error that occurred during CUDA kernel execution or API call.
+
+---
+
+Other than that, today felt similar to **Day - 02**, since it also involved working with **2D matrices**.

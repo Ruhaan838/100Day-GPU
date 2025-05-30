@@ -129,3 +129,5 @@ Today, I learned how to **transpose any matrix** using CUDA.
 ---
 
 Other than that, today felt similar to **Day - 02**, since it also involved working with **2D matrices**.
+
+## 7️⃣ Day - 07

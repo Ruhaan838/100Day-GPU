@@ -131,3 +131,9 @@ Today, I learned how to **transpose any matrix** using CUDA.
 Other than that, today felt similar to **Day - 02**, since it also involved working with **2D matrices**.
 
 ## 7️⃣ Day - 07
+
+Day 07 is quite Intesting and have so many thing to learn. Now I know how tiled Conv work. This day I just learn how tiled conv works and not other things need to have new in this day. 
+
+- Refenrence:
+  - https://www.youtube.com/watch?v=ysBrzOTMZlQ
+  - https://www.cs.ucr.edu/~nael/217-f15/lectures/217-lec8.pdf

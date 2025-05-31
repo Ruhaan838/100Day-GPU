@@ -132,7 +132,7 @@ Other than that, today felt similar to **Day - 02**, since it also involved work
 
 ## 7️⃣ Day - 07
 
-Day 07 is quite Intesting and have so many thing to learn. Now I know how tiled Conv work. This day I just learn how tiled conv works and not other things need to have new in this day. 
+Day 07 is quite interesting and has so many things to learn. Now I know how tiled Conv works. Today I realize how tiled conv works and not other things need to be new on this day. 
 
 - Refenrence:
   - https://www.youtube.com/watch?v=ysBrzOTMZlQ

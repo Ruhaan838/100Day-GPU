@@ -137,3 +137,16 @@ Day 07 is quite interesting and has so many things to learn. Now I know how tile
 - Refenrence:
   - https://www.youtube.com/watch?v=ysBrzOTMZlQ
   - https://www.cs.ucr.edu/~nael/217-f15/lectures/217-lec8.pdf
+
+## 8️⃣ Day - 08
+
+Day 08 I learn brent kung algorithm for fast prefix sum.
+
+- Refenrance:
+  - https://www.youtube.com/watch?v=1G4jfLcnI2w&t=88s
+  
+## 9️⃣ Day - 09 (flash Attention)
+ 
+Day 09 I learn the Flash Attention forward pass by pure cuda with shared memory for each query, key and value.
+
+- Learn proper memory management and other stuff ...

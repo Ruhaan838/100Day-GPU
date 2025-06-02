@@ -150,3 +150,7 @@ Day 08 I learn brent kung algorithm for fast prefix sum.
 Day 09 I learn the Flash Attention forward pass by pure cuda with shared memory for each query, key and value.
 
 - Learn proper memory management and other stuff ...
+
+## 🔟 Day - 10
+
+Day 10 I learn the falsh attention implementation in higher dimensional tensor.

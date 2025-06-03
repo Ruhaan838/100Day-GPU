@@ -6,7 +6,15 @@
 #include <curand.h>
 #include <fstream>
 
+/*There are some bugs in the code that I fixed in Day-11*/
 using namespace std;
+
+__global__ void init_neg_inf(float* arr, int num_elements) {
+    int idx = blockIdx.x * blockDim.x + threadIdx.x;
+    if (idx < num_elements) {
+        arr[idx] = -INFINITY;
+    }
+}
 
 __global__ void FlashAttentionForward(
     const float* query_ptr,
@@ -55,17 +63,21 @@ __global__ void FlashAttentionForward(
         // loading the key and value
         for (int embd = 0; embd < embd_dim; embd++){
             int temp_shared_offset = (thread_x * embd_dim) + embd;
-            int temp_mat_offset = (qkv_offset + (tile_size * col) + temp_shared_offset);
-            key_shared[(temp_shared_offset)] = key_ptr[temp_mat_offset];
-            value_shared[(temp_shared_offset)] = value_ptr[temp_mat_offset];
+            int temp_mat_offset = qkv_offset + ((col * col_block_size + thread_x) * embd_dim) + embd;
+            key_shared[temp_shared_offset]   = key_ptr[temp_mat_offset];
+            value_shared[temp_shared_offset] = value_ptr[temp_mat_offset];
         }
 
         __syncthreads();
 
         for (int row = 0; row < total_row_size; row++){
-            // loading the query data rowwise 
-            for (int embd = 0; embd < embd_dim; embd++)
-                query_shared[(thread_x * embd_dim) + embd] = query_ptr[qkv_offset + (tile_size * row) + (thread_x * embd_dim) + embd];
+            // loading the query data 
+            for (int embd = 0; embd < embd_dim; embd++){
+                int query_offset = qkv_offset + ((row * row_block_size + thread_x) * embd_dim) + embd;
+                query_shared[(thread_x * embd_dim) + embd] = query_ptr[query_offset];
+            }
+            
+            __syncthreads();
 
             // this reduce offset access the data from the max and sum mat 
             int reduce_offset = lm_offset + (row_block_size * row) + thread_x;
@@ -88,11 +100,11 @@ __global__ void FlashAttentionForward(
 
             }
 
-            float row_sum_new = 0; // row_sum_new = sum(exp(attention_score - row_max))
+            float row_sum_new = 0; // row_sum_new = sum(exp(attention_score - row_max_new))
             for (int col_inner = 0; col_inner < col_block_size; col_inner++){
                 int temp_col_offset = (col_block_size * thread_x) + col_inner;
-                // exp(attention_score - row_max)
-                attention_shared[temp_col_offset] = __expf(attention_shared[temp_col_offset] - row_max);
+                // exp(attention_score - row_max_new)
+                attention_shared[temp_col_offset] = __expf(attention_shared[temp_col_offset] - row_max_new);
                 // sum the exp of the attention_score
                 row_sum_new += attention_shared[temp_col_offset];
             }
@@ -102,15 +114,28 @@ __global__ void FlashAttentionForward(
 
             //write the output and sum_mat, and max_mat
             for (int embd = 0; embd < embd_dim; embd++){
-                float weight = 0;
-                for (int col_inner = 0; col_inner < col_block_size; col_inner++)
-                    weight += attention_shared[(col_block_size * thread_x) + col_inner] * value_shared[(col_inner * embd_dim) + embd] + eps;
-                
+                float weight = 0.0f;
+                for (int col_inner = 0; col_inner < col_block_size; col_inner++) {
+                    int idx_att = (col_block_size * thread_x) + col_inner;
+                    int idx_val = (col_inner * embd_dim) + embd;
+                    weight += attention_shared[idx_att] * value_shared[idx_val];
+                }
+
+                int output_offset = qkv_offset + (tile_size * row) + (thread_x * embd_dim) + embd;
+                float old_out = output[output_offset];
+
+                // Numerically‐stable merge of “old” + “new” contributions:
+                float coef_old = row_sum * __expf(row_max - row_max_f);      
+                float coef_new = __expf(row_max_new - row_max_f);            
+
+                float numer_old = coef_old * old_out;                         
+                float numer_new = coef_new * weight;                          
+
                 // output_ij = (1 / new_sum) * (old_sum * e ^ (old_max - new_max) + e ^ attention_score - new_max) * weight
                 // this output formula is actually numerically stable that's why it's takes more formula
-                int output_offset = qkv_offset + (tile_size * row) + (thread_x * embd_dim) + embd;
-                output[output_offset] = (1 / (eps + row_sum_f)) * ((row_sum * __expf(row_max - row_max_f) * output[output_offset])) + __expf(row_max_new - row_max_f + eps) * weight;
+                output[output_offset] = (numer_old + numer_new) / (eps + row_sum_f);
             }
+
             int new_reduce_offset = lm_offset + (row_block_size * row) + thread_x;
             max_mat[new_reduce_offset] = row_max_f;
             sum_mat[new_reduce_offset] = row_sum_f;
@@ -121,16 +146,13 @@ __global__ void FlashAttentionForward(
 }
 
 template <typename T>
-T* allocate_init_cuda_memory(size_t size, bool init_with_zero = false, bool init_with_neg_inf = false){
+T* allocate_init_cuda_memory(size_t size, bool init_with_zero = false){
     T* data_ptr;
     cudaMalloc(&data_ptr, size);
 
     if (init_with_zero)
         cudaMemset(data_ptr, 0, size);
-    else if (init_with_neg_inf){
-        float neg_inf = -INFINITY;
-        cudaMemset(data_ptr, *reinterpret_cast<int*>(&neg_inf), size);
-    } else {
+    else {
         curandGenerator_t generator;
         curandCreateGenerator(&generator, CURAND_RNG_PSEUDO_DEFAULT); 
         curandSetGeneratorOffset(generator, time(0)); 
@@ -212,11 +234,16 @@ int main(){
 
     float* output = allocate_init_cuda_memory<float>(mat_size, true);
 
-
     float* sum_mat = allocate_init_cuda_memory<float>(vector_size, true);
-    float* max_mat = allocate_init_cuda_memory<float>(vector_size, false, true);
+    float* max_mat = allocate_init_cuda_memory<float>(vector_size);
 
-    const int shared_mem_size = (4 * col_block_size * embd_dim * sizeof(float)) + (col_block_size * row_block_size * sizeof(float));
+    int num_reduce_elems = batch_size * num_heads * seq_len;
+    int threads_per_block = 256;
+    int blocks_for_init = (num_reduce_elems + threads_per_block - 1) / threads_per_block;
+    init_neg_inf<<<blocks_for_init, threads_per_block>>>(max_mat, num_reduce_elems);
+    cudaDeviceSynchronize(); 
+
+    const int shared_mem_size = 4 * col_block_size * embd_dim * sizeof(float);
     int max_shared_mem;
     cudaDeviceGetAttribute(&max_shared_mem, cudaDevAttrMaxSharedMemoryPerBlock, 0);
     
@@ -225,7 +252,7 @@ int main(){
 
     FlashAttentionForward<<<grid_dim, block_dim, shared_mem_size>>>(
         query_mat, key_mat, value_mat, output, seq_len, embd_dim, col_block_size, 
-        row_block_size, total_col_size, total_row_size, attention_scale, 
+        row_block_size, total_row_size, total_col_size, attention_scale, 
         sum_mat, max_mat
     );
 
@@ -250,13 +277,13 @@ int main(){
     print_matrix(query_mat, batch_size, num_heads, seq_len, embd_dim);
 
     cout << "Key: ";
-    print_matrix(query_mat, batch_size, num_heads, seq_len, embd_dim);
+    print_matrix(key_mat, batch_size, num_heads, seq_len, embd_dim);
 
     cout << "Value: ";
-    print_matrix(query_mat, batch_size, num_heads, seq_len, embd_dim);
+    print_matrix(value_mat, batch_size, num_heads, seq_len, embd_dim);
 
     cout << "Output: ";
-    print_matrix(query_mat, batch_size, num_heads, seq_len, embd_dim);
+    print_matrix(output, batch_size, num_heads, seq_len, embd_dim);
 
     cudaFree(query_mat);
     cudaFree(key_mat);

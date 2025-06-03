@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cuda_runtime.h>
 
-// y = (x - E[x] / sqrt(Var[x] + eps]) * y + ß
+// y = (x - E[x] / sqrt(Var[x] + eps]) * y + ß 
 __global__ void LayerNorm(const float *input, float *output, int rows, int cols){
     int row = blockIdx.x * blockDim.x + threadIdx.x;
 

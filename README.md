@@ -154,3 +154,8 @@ Day 09 I learn the Flash Attention forward pass by pure cuda with shared memory 
 ## 🔟 Day - 10
 
 Day 10 I learn the falsh attention implementation in higher dimensional tensor.
+
+## 1️⃣1️⃣ Day - 11
+
+Learn what is the sparse Matrix, Learn what is the ELL and COO methods for storing the sparse Matrix.
+Understand the importance of the sparse Matrix in real life.

@@ -159,3 +159,7 @@ Day 10 I learn the falsh attention implementation in higher dimensional tensor.
 
 Learn what is the sparse Matrix, Learn what is the ELL and COO methods for storing the sparse Matrix.
 Understand the importance of the sparse Matrix in real life.
+
+## 1️⃣2️⃣ Day - 12 
+ 
+Learn the how do parallel merge sort in cuda.

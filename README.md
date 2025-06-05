@@ -163,3 +163,7 @@ Understand the importance of the sparse Matrix in real life.
 ## 1️⃣2️⃣ Day - 12 
  
 Learn the how do parallel merge sort in cuda.
+
+## 1️⃣3️⃣ Day - 13
+
+Implement BFS in parallel and also implement the Gelu in multiple threads.

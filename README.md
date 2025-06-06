@@ -167,3 +167,7 @@ Learn the how do parallel merge sort in cuda.
 ## 1️⃣3️⃣ Day - 13
 
 Implement BFS in parallel and also implement the Gelu in multiple threads.
+
+## 1️⃣4️⃣ Day - 14
+
+Implement Simple Nural network. make the Linear Layer.

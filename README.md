@@ -171,3 +171,7 @@ Implement BFS in parallel and also implement the Gelu in multiple threads.
 ## 1️⃣4️⃣ Day - 14
 
 Implement Simple Nural network. make the Linear Layer.
+
+## 1️⃣5️⃣ Day - 15 
+
+Today I Implement CNN from scratch using CUDA kernel.

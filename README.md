@@ -175,3 +175,7 @@ Implement Simple Nural network. make the Linear Layer.
 ## 1️⃣5️⃣ Day - 15 
 
 Today I Implement CNN from scratch using CUDA kernel.
+
+## 1️⃣6️⃣ Day - 16
+
+The Day 16 is quite simple one. Implement FHD (fully-hybrid Domain) algorim for non-cartesian magnetic resonance imaging (MRI) reconstruction in CUDA.

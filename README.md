@@ -179,3 +179,7 @@ Today I Implement CNN from scratch using CUDA kernel.
 ## 1️⃣6️⃣ Day - 16
 
 The Day 16 is quite simple one. Implement FHD (fully-hybrid Domain) algorim for non-cartesian magnetic resonance imaging (MRI) reconstruction in CUDA.
+
+## 1️⃣7️⃣ Day - 17
+
+The Day 17 is have so much to learn, I learn flash-attention-2 with forward and backward pass.

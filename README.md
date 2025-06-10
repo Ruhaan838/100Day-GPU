@@ -183,3 +183,7 @@ The Day 16 is quite simple one. Implement FHD (fully-hybrid Domain) algorim for 
 ## 1️⃣7️⃣ Day - 17
 
 The Day 17 is have so much to learn, I learn flash-attention-2 with forward and backward pass.
+
+## 1️⃣8️⃣ Day - 18
+
+Today I implement the NaiveBayes with shared memeory of prior and likelihood.

@@ -187,3 +187,7 @@ The Day 17 is have so much to learn, I learn flash-attention-2 with forward and 
 ## 1️⃣8️⃣ Day - 18
 
 Today I implement the NaiveBayes with shared memeory of prior and likelihood.
+
+## 1️⃣9️⃣ Day - 19
+
+Today I learn use of cublas API and implement vector addition and matmul.

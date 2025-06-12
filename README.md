@@ -191,3 +191,7 @@ Today I implement the NaiveBayes with shared memeory of prior and likelihood.
 ## 1️⃣9️⃣ Day - 19
 
 Today I learn use of cublas API and implement vector addition and matmul.
+
+## 2️⃣0️⃣ Day - 20
+
+Today I learn use of cuDNN API which is very grate and complex libray. it's allow to write the fcNet by using just simple functions and help a lot for CUDA codes. Have inbuild functions for GEMM and etc... 

@@ -195,3 +195,7 @@ Today I learn use of cublas API and implement vector addition and matmul.
 ## 2️⃣0️⃣ Day - 20
 
 Today I learn use of cuDNN API which is very grate and complex libray. it's allow to write the fcNet by using just simple functions and help a lot for CUDA codes. Have inbuild functions for GEMM and etc... 
+
+## 2️⃣1️⃣ Day - 21
+
+Today I implement RoPE in cuda for query and key.

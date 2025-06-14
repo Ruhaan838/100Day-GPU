@@ -199,3 +199,7 @@ Today I learn use of cuDNN API which is very grate and complex libray. it's allo
 ## 2️⃣1️⃣ Day - 21
 
 Today I implement RoPE in cuda for query and key.
+
+## 2️⃣2️⃣ Day - 22
+
+Implement EM-algorithem for 1D gaussian vector. to make the cluster!!

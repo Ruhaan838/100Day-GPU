@@ -203,3 +203,7 @@ Today I implement RoPE in cuda for query and key.
 ## 2️⃣2️⃣ Day - 22
 
 Implement EM-algorithem for 1D gaussian vector. to make the cluster!!
+
+## 2️⃣3️⃣ Day - 23
+
+Implement swiGLU implement it on 2D data. eazy...

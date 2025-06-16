@@ -207,3 +207,7 @@ Implement EM-algorithem for 1D gaussian vector. to make the cluster!!
 ## 2️⃣3️⃣ Day - 23
 
 Implement swiGLU implement it on 2D data. eazy...
+
+## 2️⃣4️⃣ Day - 24
+
+Implement atomicAdd using cuda kernel in this code we basically count the number of threadID using just simple atomicAdd.

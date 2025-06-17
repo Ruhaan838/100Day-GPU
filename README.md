@@ -211,3 +211,7 @@ Implement swiGLU implement it on 2D data. eazy...
 ## 2️⃣4️⃣ Day - 24
 
 Implement atomicAdd using cuda kernel in this code we basically count the number of threadID using just simple atomicAdd.
+
+## 2️⃣5️⃣ Day - 25
+
+Implement Monte Carlo Tree Search in CUDA. With 1024 parallel simulations.

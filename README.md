@@ -215,3 +215,7 @@ Implement atomicAdd using cuda kernel in this code we basically count the number
 ## 2️⃣5️⃣ Day - 25
 
 Implement Monte Carlo Tree Search in CUDA. With 1024 parallel simulations.
+
+## 2️⃣6️⃣ Day - 26
+
+Implement histogram loss in parallel and shared memory on CUDA.

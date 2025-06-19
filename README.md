@@ -219,3 +219,7 @@ Implement Monte Carlo Tree Search in CUDA. With 1024 parallel simulations.
 ## 2️⃣6️⃣ Day - 26
 
 Implement histogram loss in parallel and shared memory on CUDA.
+
+## 2️⃣7️⃣ Day - 27
+
+Implement mirror descent in cuda with parallel threads.

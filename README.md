@@ -223,3 +223,7 @@ Implement histogram loss in parallel and shared memory on CUDA.
 ## 2️⃣7️⃣ Day - 27
 
 Implement mirror descent in cuda with parallel threads.
+
+## 2️⃣8️⃣ Day - 28
+
+Implement micrograd like autograd in cuda on parallel threads.

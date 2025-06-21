@@ -227,3 +227,7 @@ Implement mirror descent in cuda with parallel threads.
 ## 2️⃣8️⃣ Day - 28
 
 Implement micrograd like autograd in cuda on parallel threads.
+
+## 2️⃣9️⃣ Day - 29
+
+Learn how to use the CUDAGraph for fast arithmetic and computation without changing kernels.

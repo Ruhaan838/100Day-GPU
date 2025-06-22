@@ -1,3 +1,7 @@
+
+# 🧑🏻‍💻 CUDA (NVIDIA)
+
+
 ## 1️⃣ Day - 01
 Day 1 was very simple. I just learned how to add two 1D vectors using a basic CUDA kernel.
 
@@ -231,3 +235,41 @@ Implement micrograd like autograd in cuda on parallel threads.
 ## 2️⃣9️⃣ Day - 29
 
 Learn how to use the CUDAGraph for fast arithmetic and computation without changing kernels.
+
+Sure! Here's a sample write-up you can use to describe your work for **Day-30**, based on the project structure shown in the screenshot:
+
+
+
+# 🖥️ AMD (HIP/RoCm)
+
+
+## 3️⃣0️⃣ Day-30
+
+Today’s focus was on implementing and experimenting with deep learning operations and parallel computing techniques using HIP (Heterogeneous-Compute Interface for Portability) for AMD GPUs. The project is organized into three key folders, each representing a layer of computational complexity and abstraction.
+
+#### `DL/` — Deep Learning Operations
+
+
+* **`conv_2d.cpp`**: HIP-based implementation of 2D convolution used in CNNs.
+* **`flash_attention_forward.cpp`**: Explores efficient attention mechanisms inspired by FlashAttention.
+* **`gelu.cpp`**: Implements the GELU activation function commonly used in Transformer models.
+* **`layer_norm.cpp`**: HIP kernel for Layer Normalization.
+* **`rope_hip.cpp`**: Rotary positional encoding, relevant for Transformer-based architectures.
+
+#### `parallel/` — Matrix Operations with Parallelism
+
+
+* **`matmul_rocblas.cpp`**: Matrix multiplication using AMD's rocBLAS.
+* **`matrix_add.cpp`**: Parallel matrix addition.
+* **`matrix_trans.cpp`**: Matrix transpose operation with shared memory usage.
+* **`parallel_merge.cpp`**: Illustrates data merging using thread-level parallelism.
+
+#### `simple/` — Introductory Parallel Programs
+
+
+* **`partial_sum.cpp`**: A basic reduction operation to compute the sum of array elements.
+* **`prefix_sum.cpp`**: Scan operation (inclusive prefix sum) across threads.
+* **`vec_reocblas.cpp`**: Vector operations with rocBLAS integration.
+* **`vector_add.cpp`**: Parallel vector addition using HIP.
+* **`vector_matrix_mul.cpp`**: Hybrid computation of vector-matrix multiplication.
+

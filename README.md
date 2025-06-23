@@ -240,7 +240,7 @@ Sure! Here's a sample write-up you can use to describe your work for **Day-30**,
 
 
 
-# 🖥️ AMD (HIP/RoCm)
+# 🖥️ HIP/RoCm (AMD)
 
 
 ## 3️⃣0️⃣ Day-30
@@ -273,3 +273,8 @@ Today’s focus was on implementing and experimenting with deep learning operati
 * **`vector_add.cpp`**: Parallel vector addition using HIP.
 * **`vector_matrix_mul.cpp`**: Hybrid computation of vector-matrix multiplication.
 
+# 🧑🏻‍💻 CUDA (NVIDIA)
+
+## 3️⃣1️⃣ Day-31
+
+Implement game of life using shared memory in CUDA.

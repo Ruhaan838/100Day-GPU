@@ -278,3 +278,10 @@ Today’s focus was on implementing and experimenting with deep learning operati
 ## 3️⃣1️⃣ Day-31
 
 Implement game of life using shared memory in CUDA.
+
+
+#  🖥️ HIP/RoCm (AMD)
+
+## 3️⃣2️⃣ Day-32
+
+Implement SGMM in AMDs HIP Kernel.

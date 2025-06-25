@@ -285,3 +285,9 @@ Implement game of life using shared memory in CUDA.
 ## 3️⃣2️⃣ Day-32
 
 Implement SGMM in AMDs HIP Kernel.
+
+# 🧑🏻‍💻 CUDA (NVIDIA)
+
+## 3️⃣3️⃣ Day-33
+
+Implement mlp with relu with forward and backward.

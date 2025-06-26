@@ -1,293 +1,304 @@
+# 100 Days of GPU Programming
 
-# 🧑🏻‍💻 CUDA (NVIDIA)
+A daily log of my journey learning and implementing deep learning and parallel computing concepts using CUDA (NVIDIA) and HIP/RoCm (AMD).
 
+---
 
-## 1️⃣ Day - 01
-Day 1 was very simple. I just learned how to add two 1D vectors using a basic CUDA kernel.
+## 1️⃣ Day 01
 
-### Keywords and Variables.
-- `__global__`: This keyword is used to define a function (kernel) that runs on the GPU. You can launch it using the `<<<...>>>` syntax.
-- `blockIdx.x`: This variable provides the current block index within a grid.
-- `blockDim.x`: This variable provides the number of threads per block.
-- `threadIdx.x`: This variable provides the current thread index within the block.
+Learned how to add two 1D vectors using a basic CUDA kernel.
 
-### Allocation and Deallocation.
+**Keywords and Variables:**
+- `__global__`: Defines a function (kernel) that runs on the GPU, launched with `<<<...>>>`.
+- `blockIdx.x`: Current block index within a grid.
+- `blockDim.x`: Number of threads per block.
+- `threadIdx.x`: Current thread index within the block.
 
-- `cudaMalloc`: Allocates memory on the CUDA device (GPU).
-- `cudaMemcpy`: Copies memory between host (CPU) and device (GPU). For example, use `cudaMemcpyHostToDevice` to copy from host to device.
-- `cudaFree`: Frees the allocated memory on the CUDA device.
-  
-## 2️⃣ Day - 02
-Day 2 is kind of simple. Now I know how to add 2D matrix.
+**Memory Management:**
+- `cudaMalloc`: Allocates memory on the GPU.
+- `cudaMemcpy`: Copies memory between host (CPU) and device (GPU).
+- `cudaFree`: Frees allocated GPU memory.
 
-### Keywords and Variables.
-- `dim3`: This is a CUDA data type that allows you to define dimensions in 1D, 2D, or 3D—for grids and blocks.
-- `cudaDeviceSynchronize`: It forces the CPU to wait for the GPU to finish its task.
+---
 
-### New Thing
-- You can add two matrices using this formula
+## 2️⃣ Day 02
+
+Learned to add two 2D matrices.
+
+**Keywords and Variables:**
+- `dim3`: CUDA type for specifying 1D, 2D, or 3D dimensions for grids and blocks.
+- `cudaDeviceSynchronize`: Forces CPU to wait for GPU to finish.
+
+**Matrix Addition Formula:**
 ```
-  c[i * N + j] = a[i * N + j] + b[i * N + j]
-  here:
-    i: row
-    j: column
-    N: len of matrix
+c[i * N + j] = a[i * N + j] + b[i * N + j]
+where:
+  i: row
+  j: column
+  N: matrix width
 ```
-- The rest of the things are the same as per Day01.
+Other concepts are similar to Day 01.
 
-## 3️⃣ Day - 03
-Day 3 is too simple. Now I know how to multiply 2D mat with 1D vec.
+---
 
-### Example:
+## 3️⃣ Day 03
+
+Learned to multiply a 2D matrix with a 1D vector.
+
+**Example:**
 ```
-2D mat
-1 1 1 
-1 1 1 
-1 1 1 
+2D matrix:
+1 1 1
+1 1 1
+1 1 1
 
-1D vec
-2 2 2 
+1D vector:
+2 2 2
 
-ans vec
+Result:
 6 6 6
-
 ```
-
-This is a simple matrix multiplication with a vector.
-- Nothing new to learn on this day.
-
-## 4️⃣ Day - 04
-Day 4 is quite new and interesting.
-
-### Keywords and Variables.
-- `__shared__`: This kerword is allow to share the memory.
-- `__syncthreads`[2]: Command is a block level synchronization barrier. Basically stabelze the hang or produce unintended side effects.
-
-## How Code Works
-
-- First thing is that we have
-
-2 blocks, each with 8 threads <br>
-Each block uses 32 bytes of shared memory <br>
-`<<<gridsize, blocksize, shared_mem>>>` = `<<<2, 8, 32>>>`
+No new concepts today.
 
 ---
->**NOTE[1]:** 1 static shared memory: <br>
-&emsp;&emsp; `__shared__ int var1[10]` <br>
-2 dynamic shared memory: should add "extern" keyword <br>
-&emsp;&emsp; `extern __shared__ int Var1[]`
----
 
-- Then we fill the sharedMemory like this
+## 4️⃣ Day 04
 
-```bash
+Explored shared memory in CUDA.
+
+**Keywords and Variables:**
+- `__shared__`: Declares shared memory accessible by threads in a block.
+- `__syncthreads()`: Synchronizes all threads in a block.
+
+**Notes:**
+- Static shared memory: `__shared__ int var1[10];`
+- Dynamic shared memory: `extern __shared__ int var1[];`
+
+**Partial Sum Example:**
+```
 sharedMemory[0] = in[0] + in[8] = 1 + 9 = 10
-
-sharedMemory[1] = in[1] + in[9] = 2 + 10 = 12
-
 ...
-
 sharedMemory[7] = in[7] + in[15] = 8 + 16 = 24
 ```
+Partial sums are then accumulated.
 
-- By this sharedMemory we perfrom the partialSum.
-```
-[10, 12, 14, 16, 18, 20, 22, 24]
-[10, 22, 36, 52, 70, 90, 112, 136]
-```
+---
 
-- Credits <br>
-  - [stackOverflow-1](https://stackoverflow.com/questions/12066730/allocate-shared-variables-in-cuda)
-  - [stackOverflow-2](https://stackoverflow.com/questions/15240432/does-syncthreads-synchronize-all-threads-in-the-grid)
-  
-## 5️⃣ Day - 05
+## 5️⃣ Day 05
 
-Today, I use all the concepts from other days.
+Implemented Layer Normalization in CUDA.
 
-- By using the formula for **Layer Normalization**, we can implement it in CUDA quite efficiently.
-
-### 📐 LayerNorm Formula:
-
-Given an input vector `x` of size `N`:
-
+**Formula:**
 $$
 \text{LayerNorm}(x_i) = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta
 $$
-
-Where: <br>
-
-$$ \mu = \frac{1}{N} \sum_{i=1}^{N} x_i \quad \text{(Mean of } x \text{)} $$ 
-$$ \sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2 \quad \text{(Variance of } x \text{)} $$
-$$ \epsilon \quad \text{(Small constant to avoid division by zero)} $$
-$$ \gamma, \beta \quad \text{(Learnable scale and shift parameters)} $$
-
-## 6️⃣ Day - 06
-
-Today, I learned how to **transpose any matrix** using CUDA.
-
-### Keywords and Variables
-
-- `cudaError_t` — This type is used to define error codes returned by CUDA API functions.
-- `cudaGetLastError()` — This function retrieves the last error that occurred during CUDA kernel execution or API call.
+Where:
+- $\mu$: Mean of $x$
+- $\sigma^2$: Variance of $x$
+- $\epsilon$: Small constant
+- $\gamma$, $\beta$: Learnable parameters
 
 ---
 
-Other than that, today felt similar to **Day - 02**, since it also involved working with **2D matrices**.
+## 6️⃣ Day 06
 
-## 7️⃣ Day - 07
+Learned to transpose a matrix in CUDA.
 
-Day 07 is quite interesting and has so many things to learn. Now I know how tiled Conv works. Today I realize how tiled conv works and not other things need to be new on this day. 
+**Keywords:**
+- `cudaError_t`: CUDA error code type.
+- `cudaGetLastError()`: Retrieves the last CUDA error.
 
-- Refenrence:
-  - https://www.youtube.com/watch?v=ysBrzOTMZlQ
-  - https://www.cs.ucr.edu/~nael/217-f15/lectures/217-lec8.pdf
+---
 
-## 8️⃣ Day - 08
+## 7️⃣ Day 07
 
-Day 08 I learn brent kung algorithm for fast prefix sum.
+Learned about tiled convolution in CUDA.
 
-- Refenrance:
-  - https://www.youtube.com/watch?v=1G4jfLcnI2w&t=88s
-  
-## 9️⃣ Day - 09 (flash Attention)
- 
-Day 09 I learn the Flash Attention forward pass by pure cuda with shared memory for each query, key and value.
+**References:**
+- [YouTube: Tiled Convolution](https://www.youtube.com/watch?v=ysBrzOTMZlQ)
+- [Lecture PDF](https://www.cs.ucr.edu/~nael/217-f15/lectures/217-lec8.pdf)
 
-- Learn proper memory management and other stuff ...
+---
 
-## 🔟 Day - 10
+## 8️⃣ Day 08
 
-Day 10 I learn the falsh attention implementation in higher dimensional tensor.
+Learned the Brent-Kung algorithm for fast prefix sum.
 
-## 1️⃣1️⃣ Day - 11
+**Reference:**
+- [YouTube: Brent-Kung Prefix Sum](https://www.youtube.com/watch?v=1G4jfLcnI2w&t=88s)
 
-Learn what is the sparse Matrix, Learn what is the ELL and COO methods for storing the sparse Matrix.
-Understand the importance of the sparse Matrix in real life.
+---
 
-## 1️⃣2️⃣ Day - 12 
- 
-Learn the how do parallel merge sort in cuda.
+## 9️⃣ Day 09
 
-## 1️⃣3️⃣ Day - 13
+Implemented Flash Attention forward pass using CUDA and shared memory.
 
-Implement BFS in parallel and also implement the Gelu in multiple threads.
+---
 
-## 1️⃣4️⃣ Day - 14
+## 🔟 Day 10
 
-Implement Simple Nural network. make the Linear Layer.
+Implemented Flash Attention for higher-dimensional tensors.
 
-## 1️⃣5️⃣ Day - 15 
+---
 
-Today I Implement CNN from scratch using CUDA kernel.
+## 1️⃣1️⃣ Day 11
 
-## 1️⃣6️⃣ Day - 16
+Learned about sparse matrices, ELL and COO storage formats, and their real-world importance.
 
-The Day 16 is quite simple one. Implement FHD (fully-hybrid Domain) algorim for non-cartesian magnetic resonance imaging (MRI) reconstruction in CUDA.
+---
 
-## 1️⃣7️⃣ Day - 17
+## 1️⃣2️⃣ Day 12
 
-The Day 17 is have so much to learn, I learn flash-attention-2 with forward and backward pass.
+Implemented parallel merge sort in CUDA.
 
-## 1️⃣8️⃣ Day - 18
+---
 
-Today I implement the NaiveBayes with shared memeory of prior and likelihood.
+## 1️⃣3️⃣ Day 13
 
-## 1️⃣9️⃣ Day - 19
+Implemented parallel BFS and GELU activation using multiple threads.
 
-Today I learn use of cublas API and implement vector addition and matmul.
+---
 
-## 2️⃣0️⃣ Day - 20
+## 1️⃣4️⃣ Day 14
 
-Today I learn use of cuDNN API which is very grate and complex libray. it's allow to write the fcNet by using just simple functions and help a lot for CUDA codes. Have inbuild functions for GEMM and etc... 
+Built a simple neural network with a linear layer.
 
-## 2️⃣1️⃣ Day - 21
+---
 
-Today I implement RoPE in cuda for query and key.
+## 1️⃣5️⃣ Day 15
 
-## 2️⃣2️⃣ Day - 22
+Implemented a CNN from scratch using CUDA kernels.
 
-Implement EM-algorithem for 1D gaussian vector. to make the cluster!!
+---
 
-## 2️⃣3️⃣ Day - 23
+## 1️⃣6️⃣ Day 16
 
-Implement swiGLU implement it on 2D data. eazy...
+Implemented FHD (Fully-Hybrid Domain) algorithm for non-cartesian MRI reconstruction in CUDA.
 
-## 2️⃣4️⃣ Day - 24
+---
 
-Implement atomicAdd using cuda kernel in this code we basically count the number of threadID using just simple atomicAdd.
+## 1️⃣7️⃣ Day 17
 
-## 2️⃣5️⃣ Day - 25
+Learned and implemented FlashAttention-2 (forward and backward pass).
 
-Implement Monte Carlo Tree Search in CUDA. With 1024 parallel simulations.
+---
 
-## 2️⃣6️⃣ Day - 26
+## 1️⃣8️⃣ Day 18
 
-Implement histogram loss in parallel and shared memory on CUDA.
+Implemented Naive Bayes with shared memory for prior and likelihood.
 
-## 2️⃣7️⃣ Day - 27
+---
 
-Implement mirror descent in cuda with parallel threads.
+## 1️⃣9️⃣ Day 19
 
-## 2️⃣8️⃣ Day - 28
+Used cuBLAS API for vector addition and matrix multiplication.
 
-Implement micrograd like autograd in cuda on parallel threads.
+---
 
-## 2️⃣9️⃣ Day - 29
+## 2️⃣0️⃣ Day 20
 
-Learn how to use the CUDAGraph for fast arithmetic and computation without changing kernels.
+Explored cuDNN API for building fully connected networks and using built-in GEMM functions.
 
-Sure! Here's a sample write-up you can use to describe your work for **Day-30**, based on the project structure shown in the screenshot:
+---
 
+## 2️⃣1️⃣ Day 21
 
+Implemented RoPE (Rotary Positional Encoding) in CUDA.
 
-# 🖥️ HIP/RoCm (AMD)
+---
 
+## 2️⃣2️⃣ Day 22
 
-## 3️⃣0️⃣ Day-30
+Implemented EM algorithm for 1D Gaussian vector clustering.
 
-Today’s focus was on implementing and experimenting with deep learning operations and parallel computing techniques using HIP (Heterogeneous-Compute Interface for Portability) for AMD GPUs. The project is organized into three key folders, each representing a layer of computational complexity and abstraction.
+---
 
-#### `DL/` — Deep Learning Operations
+## 2️⃣3️⃣ Day 23
 
+Implemented SwiGLU activation on 2D data.
 
-* **`conv_2d.cpp`**: HIP-based implementation of 2D convolution used in CNNs.
-* **`flash_attention_forward.cpp`**: Explores efficient attention mechanisms inspired by FlashAttention.
-* **`gelu.cpp`**: Implements the GELU activation function commonly used in Transformer models.
-* **`layer_norm.cpp`**: HIP kernel for Layer Normalization.
-* **`rope_hip.cpp`**: Rotary positional encoding, relevant for Transformer-based architectures.
+---
 
-#### `parallel/` — Matrix Operations with Parallelism
+## 2️⃣4️⃣ Day 24
 
+Implemented `atomicAdd` in CUDA to count thread IDs.
 
-* **`matmul_rocblas.cpp`**: Matrix multiplication using AMD's rocBLAS.
-* **`matrix_add.cpp`**: Parallel matrix addition.
-* **`matrix_trans.cpp`**: Matrix transpose operation with shared memory usage.
-* **`parallel_merge.cpp`**: Illustrates data merging using thread-level parallelism.
+---
 
-#### `simple/` — Introductory Parallel Programs
+## 2️⃣5️⃣ Day 25
 
+Implemented Monte Carlo Tree Search in CUDA with 1024 parallel simulations.
 
-* **`partial_sum.cpp`**: A basic reduction operation to compute the sum of array elements.
-* **`prefix_sum.cpp`**: Scan operation (inclusive prefix sum) across threads.
-* **`vec_reocblas.cpp`**: Vector operations with rocBLAS integration.
-* **`vector_add.cpp`**: Parallel vector addition using HIP.
-* **`vector_matrix_mul.cpp`**: Hybrid computation of vector-matrix multiplication.
+---
 
-# 🧑🏻‍💻 CUDA (NVIDIA)
+## 2️⃣6️⃣ Day 26
 
-## 3️⃣1️⃣ Day-31
+Implemented histogram loss in parallel using shared memory.
 
-Implement game of life using shared memory in CUDA.
+---
 
+## 2️⃣7️⃣ Day 27
 
-#  🖥️ HIP/RoCm (AMD)
+Implemented mirror descent in CUDA with parallel threads.
 
-## 3️⃣2️⃣ Day-32
+---
 
-Implement SGMM in AMDs HIP Kernel.
+## 2️⃣8️⃣ Day 28
 
-# 🧑🏻‍💻 CUDA (NVIDIA)
+Built a micrograd-like autograd engine in CUDA with parallel threads.
 
-## 3️⃣3️⃣ Day-33
+---
 
-Implement mlp with relu with forward and backward.
+## 2️⃣9️⃣ Day 29
+
+Learned to use CUDA Graphs for fast computation without changing kernels.
+
+---
+
+## 3️⃣0️⃣ Day 30
+
+Implemented and experimented with deep learning operations and parallel computing using HIP for AMD GPUs. The project is organized into three folders:
+
+**DL/** — Deep Learning Operations
+- `conv_2d.cpp`: HIP-based 2D convolution for CNNs.
+- `flash_attention_forward.cpp`: Efficient attention mechanisms.
+- `gelu.cpp`: GELU activation function.
+- `layer_norm.cpp`: Layer normalization kernel.
+- `rope_hip.cpp`: Rotary positional encoding.
+
+**parallel/** — Matrix Operations with Parallelism
+- `matmul_rocblas.cpp`: Matrix multiplication using rocBLAS.
+- `matrix_add.cpp`: Parallel matrix addition.
+- `matrix_trans.cpp`: Matrix transpose with shared memory.
+- `parallel_merge.cpp`: Data merging with thread-level parallelism.
+
+**simple/** — Introductory Parallel Programs
+- `partial_sum.cpp`: Basic reduction (sum).
+- `prefix_sum.cpp`: Inclusive prefix sum (scan).
+- `vec_reocblas.cpp`: Vector ops with rocBLAS.
+- `vector_add.cpp`: Parallel vector addition.
+- `vector_matrix_mul.cpp`: Vector-matrix multiplication.
+
+---
+
+## 3️⃣1️⃣ Day 31
+
+Implemented Game of Life using shared memory in CUDA.
+
+---
+
+## 3️⃣2️⃣ Day 32
+
+Implemented SGMM in AMD's HIP kernel.
+
+---
+
+## 3️⃣3️⃣ Day 33
+
+Implemented MLP with ReLU (forward and backward).
+
+---
+
+## 3️⃣4️⃣ Day 34
+
+Benchmarked CUDA vs CPU performance.

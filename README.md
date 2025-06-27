@@ -302,3 +302,9 @@ Implemented MLP with ReLU (forward and backward).
 ## 3️⃣4️⃣ Day 34
 
 Benchmarked CUDA vs CPU performance.
+
+## 3️⃣5️⃣ Day 35
+
+Ray tracing using CUDA.
+
+---

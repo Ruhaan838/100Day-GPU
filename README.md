@@ -308,3 +308,7 @@ Benchmarked CUDA vs CPU performance.
 Ray tracing using CUDA.
 
 ---
+
+## 3️⃣6️⃣ Day 37
+
+Implement the Head Diffusion in HIP(AMD).

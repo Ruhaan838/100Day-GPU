@@ -309,6 +309,14 @@ Ray tracing using CUDA.
 
 ---
 
-## 3️⃣6️⃣ Day 37
+## 3️⃣6️⃣ Day 36
 
 Implement the Head Diffusion in HIP(AMD).
+
+---
+
+## 3️⃣7️⃣ Day 37
+
+Implement the vector addition in triton.
+
+---

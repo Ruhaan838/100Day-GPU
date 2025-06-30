@@ -320,3 +320,7 @@ Implement the Head Diffusion in HIP(AMD).
 Implement the vector addition in triton.
 
 ---
+
+## 3️⃣8️⃣ Day 38
+
+Implement the Matrix Multiplication in triton.

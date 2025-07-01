@@ -324,3 +324,8 @@ Implement the vector addition in triton.
 ## 3️⃣8️⃣ Day 38
 
 Implement the Matrix Multiplication in triton.
+
+
+## 3️⃣9️⃣ Day 39
+
+Implement the Softmax in triton

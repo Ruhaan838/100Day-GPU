@@ -329,3 +329,7 @@ Implement the Matrix Multiplication in triton.
 ## 3️⃣9️⃣ Day 39
 
 Implement the Softmax in triton
+
+## 4️⃣0️⃣ Day 40
+
+Implement the fused matmul with relu.

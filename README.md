@@ -333,3 +333,7 @@ Implement the Softmax in triton
 ## 4️⃣0️⃣ Day 40
 
 Implement the fused matmul with relu.
+
+## 4️⃣1️⃣ Day 41
+
+Implement the Conv1d in triton.

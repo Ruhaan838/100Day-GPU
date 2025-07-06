@@ -345,3 +345,7 @@ Implement the Matmul using autotuing in triton.
 ## 4️⃣3️⃣ Day 43
 
 Implement the leetgpu attention in cuda.
+
+## 4️⃣4️⃣ Day 44
+
+Implement the conv3d in cuda.

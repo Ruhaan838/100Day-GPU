@@ -349,3 +349,7 @@ Implement the leetgpu attention in cuda.
 ## 4️⃣4️⃣ Day 44
 
 Implement the conv3d in cuda.
+
+## 4️⃣5️⃣ Day 45
+
+Implement the biods from leetGPU in cuda.

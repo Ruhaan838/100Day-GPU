@@ -353,3 +353,7 @@ Implement the conv3d in cuda.
 ## 4️⃣5️⃣ Day 45
 
 Implement the biods from leetGPU in cuda.
+
+## 4️⃣6️⃣ Day 46
+
+Implement the Muon in cuda with libtorch integration.

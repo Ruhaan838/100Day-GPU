@@ -361,3 +361,8 @@ Implement the Muon in cuda with libtorch integration.
 ## 4️⃣7️⃣ Day 47
 
 Performs multi-GPU parallel optimization using a Bee Colony metaheuristic to find the minimum of a simple sum-of-squares function.
+
+## 4️⃣8️⃣ Day 48
+
+Limited Mem BFGS in cuda 
+- Reference: https://outoftardis.github.io/daal/daal/algorithms/optimization-solvers/solvers/lbfgs.html

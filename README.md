@@ -366,3 +366,8 @@ Performs multi-GPU parallel optimization using a Bee Colony metaheuristic to fin
 
 Limited Mem BFGS in cuda 
 - Reference: https://outoftardis.github.io/daal/daal/algorithms/optimization-solvers/solvers/lbfgs.html
+
+## 4️⃣9️⃣ Day 49
+
+Conjugate Gradient Method (CMG) in cuda.
+- Reference: https://web.stanford.edu/class/ee364b/lectures/conj_grad_slides.pdf

@@ -371,3 +371,6 @@ Limited Mem BFGS in cuda
 
 Conjugate Gradient Method (CMG) in cuda.
 - Reference: https://web.stanford.edu/class/ee364b/lectures/conj_grad_slides.pdf
+
+## 5️⃣0️⃣ Day 50
+Implement the Matmul in float16 and float8 in cuda.

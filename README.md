@@ -374,3 +374,6 @@ Conjugate Gradient Method (CMG) in cuda.
 
 ## 5️⃣0️⃣ Day 50
 Implement the Matmul in float16 and float8 in cuda.
+
+## 5️⃣1️⃣ Day 51
+Implement the LSTM in cuda.

@@ -377,3 +377,6 @@ Implement the Matmul in float16 and float8 in cuda.
 
 ## 5️⃣1️⃣ Day 51
 Implement the LSTM in cuda.
+
+## 5️⃣2️⃣ Day 52
+Implement the RNN and GRU in cuda.

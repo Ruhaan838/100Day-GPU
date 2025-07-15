@@ -380,3 +380,6 @@ Implement the LSTM in cuda.
 
 ## 5️⃣2️⃣ Day 52
 Implement the RNN and GRU in cuda.
+
+## 5️⃣3️⃣ Day 53
+Implement the AdaHessian in cuda.

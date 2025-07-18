@@ -386,3 +386,10 @@ Implement the AdaHessian in cuda.
 
 ## 5️⃣4️⃣ Day 54
 Implement the Bi-Directional LSTM in cuda.
+
+## 5️⃣5️⃣ Day 55
+Implement the ddpm in cuda (Failed).
+
+## 5️⃣6️⃣ Day 56
+Implement the ddpm in cuda and pytorch
+![image](./Day-56/benchmark.png)

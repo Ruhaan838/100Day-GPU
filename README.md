@@ -393,3 +393,6 @@ Implement the ddpm in cuda (Failed).
 ## 5️⃣6️⃣ Day 56
 Implement the ddpm in cuda and pytorch
 ![image](./Day-56/benchmark.png)
+
+## 5️⃣7️⃣ Day 57
+Implement the mish Activation function in cuda.

@@ -396,3 +396,6 @@ Implement the ddpm in cuda and pytorch
 
 ## 5️⃣7️⃣ Day 57
 Implement the mish Activation function in cuda.
+
+## 5️⃣8️⃣ Day 58
+Implement the Wavelet transform in triton.

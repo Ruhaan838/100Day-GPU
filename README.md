@@ -399,3 +399,6 @@ Implement the mish Activation function in cuda.
 
 ## 5️⃣8️⃣ Day 58
 Implement the Wavelet transform in triton.
+
+## 5️⃣9️⃣ Day 59
+Implement the LayerNorm in trition. :(

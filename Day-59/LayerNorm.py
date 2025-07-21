@@ -13,9 +13,9 @@ def layer_norm_kernel(
     x_ptrs = X + row_idx * N + cols
     x = tl.load(x_ptrs, mask=mask, other=0.0)
 
-    # Compute mean
+
     mean = tl.sum(x, axis=0) / N
-    # Compute variance using multiplication instead of exponentiation
+
     diff = x - mean
     var = tl.sum(diff * diff, axis=0) / N
     inv_std = 1.0 / tl.sqrt(var + EPS)
@@ -41,7 +41,7 @@ def layer_norm(X, weight, bias, eps=1e-5):
     return Y
 
 def main():
-    B, N = 4, 128  # Batch size and feature dimension
+    B, N = 4, 128  
     X = torch.randn(B, N, device='cuda', dtype=torch.float32)
     weight = torch.ones(N, device='cuda', dtype=torch.float32)
     bias = torch.zeros(N, device='cuda', dtype=torch.float32)

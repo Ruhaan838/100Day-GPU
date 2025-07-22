@@ -402,3 +402,6 @@ Implement the Wavelet transform in triton.
 
 ## 5️⃣9️⃣ Day 59
 Implement the LayerNorm in trition. :(
+
+## 6️⃣0️⃣ Day 60
+Implement the Bitonic Sort in CUDA.

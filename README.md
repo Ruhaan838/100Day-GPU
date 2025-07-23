@@ -405,3 +405,6 @@ Implement the LayerNorm in trition. :(
 
 ## 6️⃣0️⃣ Day 60
 Implement the Bitonic Sort in CUDA.
+
+## 6️⃣1️⃣ Day 61
+Implement the Simulated Annealing in trion.

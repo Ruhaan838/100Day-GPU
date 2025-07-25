@@ -410,4 +410,7 @@ Implement the Bitonic Sort in CUDA.
 Implement the Simulated Annealing in trion.
 
 ## 6️⃣2️⃣ Day 62 
-Implement the Spectral Norm in CUDA using with shared memory.
+Implement the Spectral Norm in CUDA with shared memory.
+
+## 6️⃣3️⃣ Day 63
+Implement the Group Norm in CUDA with shared memory.

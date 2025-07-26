@@ -414,3 +414,6 @@ Implement the Spectral Norm in CUDA with shared memory.
 
 ## 6️⃣3️⃣ Day 63
 Implement the Group Norm in CUDA with shared memory.
+
+## 6️⃣4️⃣ Day 64
+Implement the Kl-Divergence in CUDA.

@@ -417,3 +417,6 @@ Implement the Group Norm in CUDA with shared memory.
 
 ## 6️⃣4️⃣ Day 64
 Implement the Kl-Divergence in CUDA.
+
+## 6️⃣5️⃣ Day 65
+Implement the GeGlu in CUDA with forward and backpass.

@@ -423,3 +423,6 @@ Implement the GeGlu in CUDA with forward and backward pass.
 
 ## 6️⃣6️⃣ Day 66
 Implement the SwiGlu in CUDA with forward and backward pass.
+
+## 6️⃣7️⃣ Day 67
+Implement the Poisson Solver in CUDA.

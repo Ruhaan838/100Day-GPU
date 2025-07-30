@@ -426,3 +426,6 @@ Implement the SwiGlu in CUDA with forward and backward pass.
 
 ## 6️⃣7️⃣ Day 67
 Implement the Poisson Solver in CUDA.
+
+## 6️⃣8️⃣ Day 68
+Implement the Lora Linear in CUDA.

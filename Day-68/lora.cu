@@ -25,7 +25,7 @@ __global__ void lora_kernel(const float* x, const float *W, const float *A, cons
         for(int k = 0; k < K; k++){
             float sum_ab = 0.0f;
             for(int r = 0; r < R; r++){
-                sum_ab += A[k * R + r] * B[k * N + col];
+                sum_ab += A[k * R + r] * B[r * N + col];
             }
 
             float w_eff = W[k * N + col] + sum_ab;

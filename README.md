@@ -429,3 +429,6 @@ Implement the Poisson Solver in CUDA.
 
 ## 6️⃣8️⃣ Day 68
 Implement the Lora Linear in CUDA.
+
+## 6️⃣9️⃣ Day 69
+Implement the K means algorithm in CUDA.

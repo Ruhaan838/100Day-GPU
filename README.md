@@ -432,3 +432,6 @@ Implement the Lora Linear in CUDA.
 
 ## 6️⃣9️⃣ Day 69
 Implement the K means algorithm in CUDA.
+
+## 7️⃣0️⃣ Day 70
+Implement the TV distance in CUDA.

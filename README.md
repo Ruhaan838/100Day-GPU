@@ -435,3 +435,6 @@ Implement the K means algorithm in CUDA.
 
 ## 7️⃣0️⃣ Day 70
 Implement the TV distance in CUDA.
+
+## 7️⃣1️⃣ Day 71
+Implement the JSD(Jensen-Shannon Divergence) in CUDA with forward and backward passes, with loss calculation.

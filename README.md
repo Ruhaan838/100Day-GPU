@@ -438,3 +438,6 @@ Implement the TV distance in CUDA.
 
 ## 7️⃣1️⃣ Day 71
 Implement the JSD(Jensen-Shannon Divergence) in CUDA with forward and backward passes, with loss calculation.
+
+## 7️⃣2️⃣ Day 72
+Implement the dyt the simple Derivative of the vector in CUDA.

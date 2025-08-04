@@ -441,3 +441,6 @@ Implement the JSD(Jensen-Shannon Divergence) in CUDA with forward and backward p
 
 ## 7️⃣2️⃣ Day 72
 Implement the dyt the simple Derivative of the vector in CUDA.
+
+## 7️⃣3️⃣ Day 73
+Implement the mrope from qwen2vl paper in CUDA with forward and backward pass.

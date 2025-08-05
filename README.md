@@ -444,3 +444,6 @@ Implement the dyt the simple Derivative of the vector in CUDA.
 
 ## 7️⃣3️⃣ Day 73
 Implement the mrope from qwen2vl paper in CUDA with forward and backward pass.
+
+## 7️⃣4️⃣ Day 74
+Implement the fused linear softmax in CUDA with loss caculation. 

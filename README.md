@@ -447,3 +447,6 @@ Implement the mrope from qwen2vl paper in CUDA with forward and backward pass.
 
 ## 7️⃣4️⃣ Day 74
 Implement the fused linear softmax in CUDA with loss caculation. 
+
+## 7️⃣5️⃣ Day 75
+Implement the Contrastive Loss in CUDA.

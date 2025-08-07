@@ -450,3 +450,6 @@ Implement the fused linear softmax in CUDA with loss caculation.
 
 ## 7️⃣5️⃣ Day 75
 Implement the Contrastive Loss in CUDA.
+
+## 7️⃣6️⃣ Day 76
+Implement the Triplet Loss in CUDA.

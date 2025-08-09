@@ -455,4 +455,7 @@ Implement the Contrastive Loss in CUDA.
 Implement the Triplet Loss in CUDA.
 
 ## 7️⃣7️⃣ Day 77
-Implement the Upper Triangular Matrix Multiplication.
+Implement the Upper Triangular Matrix Multiplication in CUDA.
+
+## 7️⃣8️⃣ Day 78
+Implement the Huber Loss in CUDA.

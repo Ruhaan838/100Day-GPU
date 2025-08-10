@@ -459,3 +459,6 @@ Implement the Upper Triangular Matrix Multiplication in CUDA.
 
 ## 7️⃣8️⃣ Day 78
 Implement the Huber Loss in CUDA.
+
+## 7️⃣9️⃣ Day 79
+Implement the linear with swish activation in CUDA.

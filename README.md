@@ -462,3 +462,6 @@ Implement the Huber Loss in CUDA.
 
 ## 7️⃣9️⃣ Day 79
 Implement the linear with swish activation in CUDA.
+
+## 8️⃣0️⃣ Day 80
+Implement the Average pool 3D in CUDA.

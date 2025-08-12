@@ -465,3 +465,6 @@ Implement the linear with swish activation in CUDA.
 
 ## 8️⃣0️⃣ Day 80
 Implement the Average pool 3D in CUDA.
+
+## 8️⃣1️⃣ Day 81
+Implement the SoftPlus in CUDA.

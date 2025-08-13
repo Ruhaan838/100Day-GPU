@@ -468,3 +468,6 @@ Implement the Average pool 3D in CUDA.
 
 ## 8️⃣1️⃣ Day 81
 Implement the SoftPlus in CUDA.
+
+## 8️⃣2️⃣ Day 82
+Implement the Negative Cosine Similarity in CUDA. 

@@ -471,3 +471,6 @@ Implement the SoftPlus in CUDA.
 
 ## 8️⃣2️⃣ Day 82
 Implement the Negative Cosine Similarity in CUDA. 
+
+## 8️⃣3️⃣ Day 83
+Implement the MinReduce for multi dimensional data in CUDA.

@@ -474,3 +474,6 @@ Implement the Negative Cosine Similarity in CUDA.
 
 ## 8️⃣3️⃣ Day 83
 Implement the MinReduce for multi dimensional data in CUDA.
+
+## 8️⃣4️⃣ Day 84
+Implement the Tensor Matrix Multiplication in CUDA for Higher Dim.

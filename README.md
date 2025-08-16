@@ -477,3 +477,6 @@ Implement the MinReduce for multi dimensional data in CUDA.
 
 ## 8️⃣4️⃣ Day 84
 Implement the Tensor Matrix Multiplication in CUDA for Higher Dim.
+
+## 8️⃣5️⃣ Day 85
+Implement the Hard Sigmoid in CUDA.

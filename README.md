@@ -480,3 +480,5 @@ Implement the Tensor Matrix Multiplication in CUDA for Higher Dim.
 
 ## 8️⃣5️⃣ Day 85
 Implement the Hard Sigmoid in CUDA.
+
+## 8️⃣6️⃣ Day 86

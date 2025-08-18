@@ -482,3 +482,7 @@ Implement the Tensor Matrix Multiplication in CUDA for Higher Dim.
 Implement the Hard Sigmoid in CUDA.
 
 ## 8️⃣6️⃣ Day 86
+Implement the MSE in CUDA.
+
+## 8️⃣6️⃣ Day 87
+Implement the symMatmul in CUDA.

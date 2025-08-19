@@ -484,5 +484,8 @@ Implement the Hard Sigmoid in CUDA.
 ## 8️⃣6️⃣ Day 86
 Implement the MSE in CUDA.
 
-## 8️⃣6️⃣ Day 87
+## 8️⃣7️⃣ Day 87
 Implement the symMatmul in CUDA.
+
+## 8️⃣8️⃣ Day 88
+Implement the Lower Triangular Matrix multiplication in CUDA.

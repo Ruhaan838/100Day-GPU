@@ -489,3 +489,6 @@ Implement the symMatmul in CUDA.
 
 ## 8️⃣8️⃣ Day 88
 Implement the Lower Triangular Matrix multiplication in CUDA.
+
+## 8️⃣9️⃣ Day 89
+Implement the hinge loss in CUDA.

@@ -492,3 +492,6 @@ Implement the Lower Triangular Matrix multiplication in CUDA.
 
 ## 8️⃣9️⃣ Day 89
 Implement the hinge loss in CUDA.
+
+## 9️⃣0️⃣ Day 90
+Implement the Conv-1D in CUDA.

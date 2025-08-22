@@ -495,3 +495,6 @@ Implement the hinge loss in CUDA.
 
 ## 9️⃣0️⃣ Day 90
 Implement the Conv-1D in CUDA.
+
+## 9️⃣1️⃣ Day 91
+Implement the RMS norm in CUDA.

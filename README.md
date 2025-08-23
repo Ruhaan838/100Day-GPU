@@ -498,3 +498,6 @@ Implement the Conv-1D in CUDA.
 
 ## 9️⃣1️⃣ Day 91
 Implement the RMS norm in CUDA.
+
+## 9️⃣2️⃣ Day 92
+Implement the minimal version Transformer in CUDA.

@@ -501,3 +501,6 @@ Implement the RMS norm in CUDA.
 
 ## 9️⃣2️⃣ Day 92
 Implement the minimal version Transformer in CUDA.
+
+## 9️⃣3️⃣ Day 93
+Implement the 2D max Pooling in CUDA.

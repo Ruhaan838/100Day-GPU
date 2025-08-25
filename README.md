@@ -504,3 +504,6 @@ Implement the minimal version Transformer in CUDA.
 
 ## 9️⃣3️⃣ Day 93
 Implement the 2D max Pooling in CUDA.
+
+## 9️⃣4️⃣ Day 94
+Implement the Product Over Dimension in CUDA.

@@ -507,3 +507,6 @@ Implement the 2D max Pooling in CUDA.
 
 ## 9️⃣4️⃣ Day 94
 Implement the Product Over Dimension in CUDA.
+
+## 9️⃣5️⃣ Day 95
+Implement the Elu for FP16 in CUDA.

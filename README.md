@@ -510,3 +510,6 @@ Implement the Product Over Dimension in CUDA.
 
 ## 9️⃣5️⃣ Day 95
 Implement the Elu for FP16 in CUDA.
+
+## 9️⃣6️⃣ Day 96
+Implement the Leaky Relu in CUDA for float4 vector.

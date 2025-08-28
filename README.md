@@ -513,3 +513,6 @@ Implement the Elu for FP16 in CUDA.
 
 ## 9️⃣6️⃣ Day 96
 Implement the Leaky Relu in CUDA for float4 vector.
+
+## 9️⃣7️⃣ Day 97
+Implement the Gemm with shared memory also apply the RELU activation function on it. (CUDA)

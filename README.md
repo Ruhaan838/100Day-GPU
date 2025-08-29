@@ -516,3 +516,6 @@ Implement the Leaky Relu in CUDA for float4 vector.
 
 ## 9️⃣7️⃣ Day 97
 Implement the Gemm with shared memory also apply the RELU activation function on it. (CUDA)
+
+## 9️⃣8️⃣ Day 98
+Implement the Kullback Leibler Divergence in CUDA.

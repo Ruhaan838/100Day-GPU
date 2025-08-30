@@ -519,3 +519,6 @@ Implement the Gemm with shared memory also apply the RELU activation function on
 
 ## 9️⃣8️⃣ Day 98
 Implement the Kullback Leibler Divergence in CUDA.
+
+## 9️⃣9️⃣ Day 99
+Implement the Fused Mixture of Experts (MoE) in CUDA using the cuBLAS API to accelerate inference performance.

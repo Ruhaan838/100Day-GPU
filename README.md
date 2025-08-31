@@ -522,3 +522,6 @@ Implement the Kullback Leibler Divergence in CUDA.
 
 ## 9️⃣9️⃣ Day 99
 Implement the Fused Mixture of Experts (MoE) in CUDA using the cuBLAS API to accelerate inference performance.
+
+## 1️⃣0️⃣0️⃣ Day 100
+Implement a minimal version of Stable Diffusion utilizing DDPM and DDIM models to achieve a rapid forward pass.
